@@ -1,6 +1,3 @@
-# memory-game-react
-Memory card game using react js
-
 Here's a well-structured example of what you can include in the `README.md` file for your Memory Game project. This provides clear information about the project, how to run it, and its features.
 
 ---
