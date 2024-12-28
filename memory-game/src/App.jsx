@@ -18,6 +18,7 @@ const App = () => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [attempts, setAttempts] = useState(0);
   const [time, setTime] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false); // Track if the timer has started
   const [gameOver, setGameOver] = useState(false);
   const [difficulty, setDifficulty] = useState(4); // Easy: 4 pairs
 
@@ -27,6 +28,7 @@ const App = () => {
     setFlippedCards([]);
     setAttempts(0);
     setTime(0);
+    setGameStarted(false); // Reset gameStarted state
     setGameOver(false);
   };
 
@@ -36,13 +38,17 @@ const App = () => {
 
   // Timer
   useEffect(() => {
-    if (!gameOver) {
+    if (gameStarted && !gameOver) {
       const timer = setInterval(() => setTime((t) => t + 1), 1000);
       return () => clearInterval(timer);
     }
-  }, [gameOver]);
+  }, [gameStarted, gameOver]);
 
   const handleCardClick = (cardId) => {
+    if (!gameStarted) {
+      setGameStarted(true); // Start the timer on the first card click
+    }
+
     const newCards = [...cards];
     const cardIndex = cards.findIndex((card) => card.id === cardId);
 
@@ -81,46 +87,42 @@ const App = () => {
   };
 
   return (
-    <>
     <div className="h-screen bg-purple-200">
-    <select
-          value={difficulty}
-          onChange={(e) => setDifficulty(Number(e.target.value))}
-          className="mt-3 p-2 border rounded "
-        >
-          <option value={4}>Easy</option>
-          <option value={6}>Medium</option>
-          <option value={8}>Hard</option>
-        </select>
-    <div className=" bg-purple-200 border-dashed border-2 border-purple-950 ml-80 mr-80 mb-5">
-      
-      <h1 className="text-4xl font-bold text-center mb-5 text-purple-600">Memory Game</h1>
-      <div className="text-center mb-5">
-        <p>Time: {time}s</p>
-        <p>Attempts: {attempts}</p>
-        
-      </div>
-      <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
-        {cards.map((card) => (
-          <Card key={card.id} card={card} onClick={() => handleCardClick(card.id)} />
-        ))}
-      </div>
-      <div className="text-center mt-5">
-        {gameOver && (
-          <p className="text-xl font-bold mb-3">
-            Congratulations! You completed the game in {time}s and {attempts} attempts.
-          </p>
-        )}
-        <button
-          onClick={startNewGame}
-          className="px-4 py-2 mb-4 bg-purple-600 text-white rounded hover:bg-purple-700"
-        >
-          New Game
-        </button>
+      <select
+        value={difficulty}
+        onChange={(e) => setDifficulty(Number(e.target.value))}
+        className="mt-3 p-2 border rounded"
+      >
+        <option value={4}>Easy</option>
+        <option value={6}>Medium</option>
+        <option value={8}>Hard</option>
+      </select>
+      <div className="bg-purple-200 border-dashed border-2 border-purple-950 ml-80 mr-80 mb-5">
+        <h1 className="text-4xl font-bold text-center mb-5 text-purple-600">Memory Game</h1>
+        <div className="text-center mb-5">
+          <p>Time: {time}s</p>
+          <p>Attempts: {attempts}</p>
+        </div>
+        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+          {cards.map((card) => (
+            <Card key={card.id} card={card} onClick={() => handleCardClick(card.id)} />
+          ))}
+        </div>
+        <div className="text-center mt-5">
+          {gameOver && (
+            <p className="text-xl font-bold mb-3">
+              Congratulations! You completed the game in {time}s and {attempts} attempts.
+            </p>
+          )}
+          <button
+            onClick={startNewGame}
+            className="px-4 py-2 mb-4 bg-purple-600 text-white rounded hover:bg-purple-700"
+          >
+            New Game
+          </button>
+        </div>
       </div>
     </div>
-    </div>
-    </>
   );
 };
 
