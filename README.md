@@ -28,7 +28,7 @@ A fun and interactive memory card game built using **React**, **Vite**, and **Ta
 
 1. **Clone the Repository**:
 2. 
-   git clone https://github.com/yourusername/memory-game.git
+   git clone https://github.com/ArvanHunt/memory-game-react
   
 3. **Navigate to the Project Directory**:
    
