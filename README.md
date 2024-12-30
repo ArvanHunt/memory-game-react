@@ -1,10 +1,11 @@
-Here's a well-structured example of what you can include in the `README.md` file for your Memory Game project. This provides clear information about the project, how to run it, and its features.
-
----
-
 # Memory Game
 
 A fun and interactive memory card game built using **React**, **Vite**, and **Tailwind CSS**. Match pairs of cards by flipping them, and challenge yourself to complete the game with fewer attempts and a faster time!
+
+## Screenshots
+
+<img width="827" alt="pic23" src="https://github.com/user-attachments/assets/5b64d870-f8b3-4edc-8903-90dd82062185" />
+
 
 ## Features
 
@@ -26,22 +27,22 @@ A fun and interactive memory card game built using **React**, **Vite**, and **Ta
 ## Installation
 
 1. **Clone the Repository**:
-   ```bash
+2. 
    git clone https://github.com/yourusername/memory-game.git
-   ```
-2. **Navigate to the Project Directory**:
-   ```bash
+  
+3. **Navigate to the Project Directory**:
+   
    cd memory-game
-   ```
-3. **Install Dependencies**:
-   ```bash
+  
+4. **Install Dependencies**:
+   
    npm install
-   ```
-4. **Start the Development Server**:
-   ```bash
+   
+5. **Start the Development Server**:
+   
    npm run dev
-   ```
-5. Open your browser and navigate to the local server URL provided by Vite (e.g., `http://localhost:5173`).
+  
+6. Open your browser and navigate to the local server URL provided by Vite (e.g., `http://localhost:5173`).
 
 ## How to Play
 
@@ -62,16 +63,6 @@ A fun and interactive memory card game built using **React**, **Vite**, and **Ta
 - **Icons**: Modify the icons in the `generateCards` function in `App.jsx` to use different symbols or images.
 - **Styling**: Customize the Tailwind CSS classes in the components for a unique design.
 
-## Screenshots
-
-### Game Start
-![Game Start Screenshot](path/to/screenshot-start.png)
-
-### Gameplay
-![Gameplay Screenshot](path/to/screenshot-gameplay.png)
-
-### Game Completed
-![Game Completed Screenshot](path/to/screenshot-completed.png)
 
 ## License
 
