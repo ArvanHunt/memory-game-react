@@ -69,5 +69,3 @@ A fun and interactive memory card game built using **React**, **Vite**, and **Ta
 This project is open-source and available under the MYLICENSE.
 
 ---
-
-By following this structure, your `README.md` file will effectively communicate the purpose and functionality of your project, making it easier for others to understand and use it.
